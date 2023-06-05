@@ -69,7 +69,8 @@ export function HambergerMenu() {
         className={cls(
           menuOpened ? "flex flex-col" : "hidden",
           "md:hidden",
-          "w-full h-full bg-gray-300 absolute top-0 bottom-0 left-0 right-0 z-10",
+          "absolute top-0 bottom-0 left-0 right-0 z-10",
+          "w-full h-full bg-gray-300",
           "p-24 gap-y-8 text-xl text-zinc-600"
         )}
       >
