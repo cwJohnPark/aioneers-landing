@@ -24,13 +24,13 @@ export function Logo() {
       )}
     >
       <Image
-        src="/aioneers-logo-only.png"
+        src="/aio-logo.png"
         alt="aioneers menu logo"
-        width="21"
-        height="21"
+        width="240"
+        height="240"
+        sizes="(min-width: 240px) 100vw, 480px"
         priority
       />
-      <span>Aioneers</span>
     </div>
   );
 }
