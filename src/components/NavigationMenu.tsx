@@ -1,8 +1,15 @@
 import { cls } from "@/libs/utils";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const MenuTitles = ["HOME", "ABOUT", "PRODUCTS", "CONTACT"];
+const Menus = [
+  { title: "HOME", href: "/" },
+  { title: "ABOUT", href: "/" },
+  { title: "PRODUCTS", href: "/" },
+  { title: "CONTACT", href: "/contact" },
+];
 
 export default function NavigationMenu() {
   return (
@@ -43,7 +50,7 @@ export function MenuBar() {
         "text-gray-600"
       )}
     >
-      {MenuTitles.map((title, index) => (
+      {Menus.map((menu, index) => (
         <li
           key={index}
           className={cls(
@@ -51,7 +58,7 @@ export function MenuBar() {
             "border-white border-b-2 hover:border-gray-700"
           )}
         >
-          {title}
+          <Link href={menu.href}>{menu.title}</Link>
         </li>
       ))}
     </ul>
@@ -74,20 +81,23 @@ export function HambergerMenu() {
           "px-14 py-28 gap-y-8 text-xl text-zinc-600"
         )}
       >
-        {MenuTitles.map((title, index) => (
-          <li
-            key={index}
-            className={cls(
-              "relative top-0",
-              "cursor-pointer",
-              "pb-3",
-              "box-border",
-              "border-b-2 border-white/30 hover:border-white",
-              "transition ease-in-out"
-            )}
-          >
-            {title}
-          </li>
+        {Menus.map((menu) => (
+          <Link href={menu.href} key={menu.title} onClick={
+            () => setMenuOpened(false)
+          }>
+            <li
+              className={cls(
+                "relative top-0",
+                "cursor-pointer",
+                "pb-3",
+                "box-border",
+                "border-b-2 border-white/30 hover:border-white",
+                "transition ease-in-out"
+              )}
+            >
+              {menu.title}
+            </li>
+          </Link>
         ))}
       </ul>
       <div
